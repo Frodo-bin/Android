@@ -13,6 +13,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 public class Client {
+    private String ID;
     private Socket client;
     private Context context;
     private String site;           //IP
@@ -26,9 +27,9 @@ public class Client {
     private String str;
     public Double j,w;
     public Double[] jw;
-    public Client()
+    public Client(String id)
     {
-        ;
+        this.ID = id;
     }
     public void openClientThread()
     {
@@ -55,6 +56,7 @@ public class Client {
     public void forIn()
     {
         int i = 1;
+        sendMessage(ID,1);
         while (isClient)
         {
             try {
@@ -92,8 +94,11 @@ public class Client {
                             new OutputStreamWriter(client.getOutputStream()));
                     if(flag==2)
                         out.println("2"+"_"+chat);
-                    else if(flag==1)
+                    if(flag==1)
+                    {
                         out.println("1"+"_"+chat);
+                        Log.d("提示信息","姓名发送成功");
+                    }
                     out.flush();
                 }catch (IOException e)
                 {

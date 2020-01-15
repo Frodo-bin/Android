@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -65,7 +66,13 @@ public class ServerActivity extends AppCompatActivity {
                 switch (msg.what)
                 {
                     case 1:
+                    {
                         Toast.makeText(ServerActivity.this,msg.obj.toString(),Toast.LENGTH_SHORT).show();
+                        /*Msg temp_msg = new Msg(msg.obj.toString(), Msg.TYPE_RECEIVED);
+                        msgList.add(temp_msg);
+                        adapter.notifyItemInserted(msgList.size() - 1); // 当有新消息时，刷新ListView中的显示
+                        msgRecyclerView.scrollToPosition(msgList.size() - 1); // 将ListView定位到最后一行*/
+                    }
                     case 2:
                     {
                         Msg temp_msg = new Msg(msg.obj.toString(), Msg.TYPE_RECEIVED);

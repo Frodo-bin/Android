@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -53,7 +54,7 @@ public class ClientActivity extends AppCompatActivity {
         Name = intent.getStringExtra("Name");
         Toast.makeText(ClientActivity.this,HOST+Name,Toast.LENGTH_LONG).show();
 
-            client = new Client();
+            client = new Client(Name);
             client.clintValue(ClientActivity.this,HOST,23456);
             client.openClientThread();
         editText = findViewById(R.id.edit);

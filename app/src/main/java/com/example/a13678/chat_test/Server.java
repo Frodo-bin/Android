@@ -14,12 +14,14 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class Server {
     public static List<Socket> list;
+    public static HashMap namelist = new HashMap();
     public static Executor ex = Executors.newCachedThreadPool();
     public static double[] jd = new double[100];
     public static double[] wd =new double[100];
@@ -102,12 +104,23 @@ class receive implements Runnable {// 用于接收消息
                 {
                     Message temp = new Message();
                     temp.what = 2;
-                    temp.obj = s_temp.getInetAddress()+s_arr[1];
+                    temp.obj = Server.namelist.get(s_temp.getInetAddress())+s_arr[1];
                     Server.ServerHandler.sendMessage ( temp );
                     //new Thread(new send(s_arr[1], so)).start();// 收到消息之后 就把收到的消息发送给除了发送者之外在所有人
                     sendmessage(s_temp.getInetAddress(),s_arr[1]);
                 }
-               }
+                if(s_arr[0].equals("1"))
+                {
+                    Message temp = new Message();
+                    temp.what = 1;
+                    temp.obj = s_arr[1]+"--已连接";
+                    Server.ServerHandler.sendMessage ( temp );
+                   // new HashMap<>();
+                    Server.namelist.put(s_temp.getInetAddress(),s_arr[1]+":");
+                    Log.d("提示",s_arr[1]);
+                    sendmessage(s_temp.getInetAddress(),temp.obj.toString());
+                }
+            }
         } catch (IOException e) {
             Server.list.remove(so);
            /* String tuichu;
@@ -128,16 +141,14 @@ class receive implements Runnable {// 用于接收消息
                 if (so.getInetAddress() == ip)
                     continue;// 收到消息之后 就把收到的消息发送给除了发送者之外在所有人。ss为发送者
                 BufferedWriter out = new BufferedWriter(new OutputStreamWriter(so.getOutputStream(), "UTF-8"));
-                out.write("2" + "_" + ip + mes + "\r\n");
+                out.write("2" + "_" + Server.namelist.get(ip) + mes + "\r\n");
                 out.flush();
             }
         }catch (IOException e)
         {
             e.printStackTrace();
         }
-
     }
-
 }
 class send implements Runnable {// 发送消息
     private String s;
