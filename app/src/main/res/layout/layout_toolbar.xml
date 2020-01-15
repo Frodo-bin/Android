@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/bg_progress"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/TextView_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="192.168.1.104"
+        android:layout_marginRight="50dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_title"
+         />
+    <Button
+        android:layout_width="20dp"
+        android:id="@+id/locate"
+        android:layout_height="20dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/locate"/>
+    <Button
+        android:layout_width="20dp"
+        android:id="@+id/map"
+        android:layout_height="20dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/map"/>
+
+</android.support.v7.widget.Toolbar>

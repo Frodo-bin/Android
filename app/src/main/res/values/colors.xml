@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="grey">#ebebeb</color>
+    <color name="black">#000000</color>
+    <color name="darkgrey">#C0C0C0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="color_Accent">#FF4081</color>
+    <color name="bg_chat">#EBEBEB</color>
+    <color name="grey_text_or_bg">#7B8085</color>
+    <color name="bg_popupwindow">#2c7b8085</color>
+    <color name="green">#45BF1A</color>
+    <color name="green_pressed">#3aa115</color>
+    <color name="green_message_right_audio_playing">#45A320</color>
+    <color name="grey_message_left_audio_left">#A1A1A1</color>
+    <color name="bg_progress">#2656A3</color>
+    <color name = "color_14c7de">#14c7de</color>
+
+</resources>
